@@ -1,0 +1,92 @@
+/* General Styles for the Index Page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(34, 193, 34, 0.9);
+    color: white;
+    padding: 1rem; /* Reduce the padding */
+    text-align: center;
+    font-size: 1.2rem; /* Decrease the font size */
+}
+
+/* Main Content Styles */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Footer Styles */
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color: rgba(34, 193, 34, 0.9);
+}
+
+/* Button Styles */
+footer .button {
+    background-color: white;
+    color: #22c122;
+    padding: 1rem 2rem;
+    margin: 0.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+footer .button:hover {
+    background-color: #22c122;
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* Video Styles */
+#background-video {
+    width: 55%; /* Adjusted video size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.5rem;
+    }
+
+    footer .button {
+        padding: 0.8rem 1.5rem;
+    }
+
+    #background-video {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    footer .button {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    #background-video {
+        width: 90%;
+    }
+}

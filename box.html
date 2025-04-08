@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NutriLife Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px;
+      margin: 15px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #333;
+    }
+
+    table {
+      width: 95%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #45a049;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    nav {
+      background-color: #eff4f0;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: rgb(21, 20, 20);
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      table {
+        width: 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="set-goal.php">Diet Goals</a></li>
+      <li><a href="recommendations.html">Recommendations</a></li>
+      <li><a href="dashboard.php">Dashboard</a></li>
+      <li><a href="box.html">Chart</a></li>
+      <li><a href="logout.php">Logout</a></li>
+    </ul>
+  </nav>
+
+  <h1>NutriLife Dashboard - Daily Meal Plan</h1>
+
+  <!-- Breakfast -->
+  <h2>Breakfast</h2>
+  <table>
+    <tr>
+      <th>Meal</th><th>Quantity (Cup / g)</th><th>Carbs (g)</th><th>Proteins (g)</th><th>Fats (g)</th>
+    </tr>
+    <tr><td>Oats Porridge</td><td>1 cup / 200g</td><td>27</td><td>5</td><td>3</td></tr>
+    <tr><td>Idli & Sambar</td><td>2 idlis / 150g</td><td>30</td><td>6</td><td>1</td></tr>
+    <tr><td>Poha</td><td>1.5 cup / 180g</td><td>35</td><td>4</td><td>3</td></tr>
+    <tr><td>Upma</td><td>1.5 cup / 200g</td><td>40</td><td>6</td><td>5</td></tr>
+    <tr><td>Dalia</td><td>1.5 cup / 180g</td><td>28</td><td>6</td><td>3</td></tr>
+    <tr><td>Roti & Boiled Egg</td><td>1 roti + 1 egg / 120g</td><td>15</td><td>8</td><td>6</td></tr>
+    <tr><td>Vegetable Sandwich</td><td>2 slices / 150g</td><td>30</td><td>7</td><td>5</td></tr>
+    <tr><td>Banana & Peanut Butter</td><td>1 banana + 1 tbsp / 150g</td><td>30</td><td>3</td><td>9</td></tr>
+  </table>
+
+  <!-- Lunch -->
+  <h2>Lunch</h2>
+  <table>
+    <tr>
+      <th>Meal</th><th>Quantity (Cup / g)</th><th>Carbs (g)</th><th>Proteins (g)</th><th>Fats (g)</th>
+    </tr>
+    <tr><td>Rice & Dal</td><td>1 cup each / 300g</td><td>60</td><td>12</td><td>4</td></tr>
+    <tr><td>Vegetable Khichdi</td><td>1.5 cup / 250g</td><td>45</td><td>8</td><td>3</td></tr>
+    <tr><td>Curd Rice</td><td>1.5 cup / 250g</td><td>40</td><td>6</td><td>4</td></tr>
+    <tr><td>Roti & Veg Curry</td><td>2 roti + curry / 200g</td><td>35</td><td>7</td><td>5</td></tr>
+    <tr><td>Aloo Paratha with Curd</td><td>1 paratha + 0.5 cup curd / 250g</td><td>45</td><td>6</td><td>8</td></tr>
+    <tr><td>Soya Curry & Rice</td><td>1 cup each / 300g</td><td>40</td><td>15</td><td>6</td></tr>
+    <tr><td>Egg Curry & Rice</td><td>1 egg + 1 cup rice / 250g</td><td>35</td><td>10</td><td>7</td></tr>
+    <tr><td>Chickpea Curry & Roti</td><td>1 cup curry + 1 roti / 250g</td><td>45</td><td>12</td><td>5</td></tr>
+    <tr><td>Vegetable Pulao</td><td>1.5 cup / 250g</td><td>38</td><td>6</td><td>4</td></tr>
+    <tr><td>Palak Dal</td><td>1 cup / 200g</td><td>25</td><td>10</td><td>3</td></tr>
+    <tr><td>Rajma & Rice</td><td>1 cup each / 300g</td><td>50</td><td>12</td><td>5</td></tr>
+  </table>
+
+  <!-- Snacks -->
+  <h2>Snacks & Evening Meals</h2>
+  <table>
+    <tr>
+      <th>Meal</th><th>Quantity (Cup / g)</th><th>Carbs (g)</th><th>Proteins (g)</th><th>Fats (g)</th>
+    </tr>
+    <tr><td>Sprouts Salad</td><td>1 cup / 150g</td><td>18</td><td>13</td><td>1</td></tr>
+    <tr><td>Boiled Sweet Potatoes</td><td>1 medium / 150g</td><td>30</td><td>2</td><td>0</td></tr>
+    <tr><td>Peanut Chaat</td><td>0.5 cup / 100g</td><td>15</td><td>7</td><td>8</td></tr>
+    <tr><td>Besan Chilla</td><td>2 small / 150g</td><td>20</td><td>9</td><td>4</td></tr>
+    <tr><td>Vegetable Pakoras</td><td>1 handful / 120g</td><td>25</td><td>6</td><td>10</td></tr>
+    <tr><td>Buttermilk / Lassi</td><td>1 glass / 200g</td><td>12</td><td>4</td><td>3</td></tr>
+    <tr><td>Homemade Popcorn</td><td>1.5 cup / 50g</td><td>15</td><td>2</td><td>2</td></tr>
+  </table>
+
+  <!-- Dinner -->
+  <h2>Dinner</h2>
+  <table>
+    <tr>
+      <th>Meal</th><th>Quantity (Cup / g)</th><th>Carbs (g)</th><th>Proteins (g)</th><th>Fats (g)</th>
+    </tr>
+    <tr><td>Vegetable Dosa & Chutney</td><td>1 dosa + 2 tbsp / 200g</td><td>35</td><td>6</td><td>4</td></tr>
+    <tr><td>Methi Paratha & Curd</td><td>1 paratha + 0.5 cup / 250g</td><td>30</td><td>6</td><td>6</td></tr>
+    <tr><td>Moong Dal Khichdi</td><td>1.5 cup / 250g</td><td>40</td><td>10</td><td>3</td></tr>
+    <tr><td>Roti & Bottle Gourd Sabzi</td><td>2 roti + curry / 200g</td><td>35</td><td>6</td><td>4</td></tr>
+    <tr><td>Pumpkin Soup & Bread</td><td>1 bowl + 1 slice / 200g</td><td>25</td><td>4</td><td>2</td></tr>
+    <tr><td>Dal Rice & Salad</td><td>1 cup + salad / 300g</td><td>55</td><td>12</td><td>5</td></tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recommendations - NutriLife</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background-image: url('https://nutrition.itcportal.com/Content/images/01.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(76, 175, 80, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            width: 60%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid rgba(76, 175, 80, 0.6);
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(22, 20, 20);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hide elements by default */
+        .hidden {
+            display: none;
+        }
+
+        main {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #1c1f1c;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+
+            main {
+                width: 90%;
+                padding: 20px;
+            }
+
+            header {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="set-goal.php">Diet Goals</a></li>
+            <li><a href="recommendations.html" class="active">Recommendations</a></li>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="box.html">Chart</a></li>
+            <li id="username-display" class="hidden"><a href="#">Hello <span id="username-text"></span></a></li>
+            <a href="logout.php" class="logout">Logout</a>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Recommended Budget-Friendly Foods for Your Goals</h1>
+    </header>
+
+    <main>
+        <h2>Your Goal: <span id="user-goal"></span></h2>
+        <h3>Your Dietary Preference: <span id="user-preference"></span></h3>
+
+        <h4>Recommended Nutrient Quantities:</h4>
+        <ul id="nutrients-list">
+            <!-- Nutrient quantities will be listed here -->
+        </ul>
+
+        <h4>Recommended Budget-Friendly Foods:</h4>
+        <ul id="recommendations-list">
+            <!-- Food recommendations will be listed here -->
+        </ul>
+
+        <p>Check our <a href="box.html">food chart</a> to know more!</p>
+    </main>
+
+    <footer>
+        <a href="index.php">Back to Home</a>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Retrieve stored user data from sessionStorage
+            const preference = sessionStorage.getItem("preference");
+            const goal = sessionStorage.getItem("goal");
+            const nutrition = JSON.parse(sessionStorage.getItem("nutrition"));
+
+            // Log to console for debugging
+            console.log('User Preference:', preference);
+            console.log('User Goal:', goal);
+            console.log('Nutrition Data:', nutrition);
+
+            // Display user preferences
+            document.getElementById("user-goal").textContent = goal;
+            document.getElementById("user-preference").textContent = preference;
+
+            // Display nutrient quantities
+            const nutrientsListElement = document.getElementById("nutrients-list");
+            for (const nutrient in nutrition) {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${nutrient}: ${nutrition[nutrient]}g`;
+                nutrientsListElement.appendChild(listItem);
+            }
+
+            // Define food recommendations based on goal and preference
+            const recommendations = {
+                "weight-loss": {
+                    "veg": ["Cabbage Stir Fry", "Chickpea Salad", "Oats Porridge"],
+                    "non-veg": ["Egg Salad", "Chicken Stir-Fry with Rice", "Boiled Eggs with Veggies"],
+                    "both": ["Vegetable and Egg Stir Fry", "Chicken and Cabbage Wraps", "Grilled Chicken with Roasted Potatoes"]
+                },
+                "muscle-gain": {
+                    "veg": ["Lentil Soup", "Chickpea Salad with Rice", "Peanut Butter Banana Toast"],
+                    "non-veg": ["Chicken and Lentils", "Egg and Spinach Scramble", "Tuna Salad with Rice"],
+                    "both": ["Chicken and Quinoa Salad", "Egg with Rice and Vegetables", "Grilled Chicken with Sweet Potatoes"]
+                },
+                "balanced": {
+                    "veg": ["Vegetable Pulao", "Mixed Bean Soup", "Vegetable Curry with Rice"],
+                    "non-veg": ["Grilled Chicken with Veg", "Tuna Salad with Whole Wheat Bread", "Chicken Stir-Fry with Rice"],
+                    "both": ["Chicken Vegetable Stir-Fry", "Egg and Spinach Wrap", "Grilled Tofu with Brown Rice"]
+                }
+            };
+
+            // Get the list of recommended foods based on user goal and preference
+            const foodList = recommendations[goal][preference];
+            const foodListElement = document.getElementById("recommendations-list");
+            foodList.forEach(food => {
+                const listItem = document.createElement("li");
+                listItem.textContent = food;
+                foodListElement.appendChild(listItem);
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,165 @@
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            padding-left: 50px;
+        }
+
+        /* Background Image */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url("https://sa1s3optim.patientpop.com/assets/images/provider/photos/1771479.jpg") center/cover no-repeat;
+            filter: blur(5px) brightness(0.8);
+            z-index: -1;
+            animation: backgroundFade 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundFade {
+            0% {
+                filter: blur(5px) brightness(0.8);
+            }
+            100% {
+                filter: blur(3px) brightness(1);
+            }
+        }
+
+        /* Form Container */
+        .form-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.85); /* White with slight transparency */
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            width: 400px;
+            padding: 40px;
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container h1 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .form-container p {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-container input {
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 100%;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.8s ease-out forwards;
+        }
+
+        .form-container input:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .form-container input:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        .form-container input:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+        .form-container input:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-container button {
+            background: #22c122;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: transform 0.2s ease-in-out, background 0.3s;
+        }
+
+        .form-container button:hover {
+            background: #1c9c1c;
+            transform: scale(1.05);
+        }
+
+        .terms {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .terms a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+

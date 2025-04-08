@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriLife - Signup</title>
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 320px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .form-container:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        /* Input Fields */
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border: 1px solid #4CAF50;
+            outline: none;
+        }
+
+        /* Submit Button */
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Signup Message */
+        #signupMessage {
+            color: red;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 400px) {
+            .form-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm" method="POST" action="signup.php">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" name="username" required>
+        
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" name="password" required>
+        
+            <button type="submit">Sign Up</button>
+            <input type="hidden" name="action" value="signup">
+        </form>
+
+        <p id="signupMessage"></p>
+    </div>
+
+</body>
+</html>
