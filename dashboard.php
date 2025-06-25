@@ -12,6 +12,12 @@
             padding: 30px;
             text-align: center;
         }
+        canvas {
+    width: 100% !important;
+    max-width: 600px;
+    height: 400px !important;
+}
+
         .nav {
             display: flex;
             justify-content: space-between;
@@ -62,12 +68,20 @@
             margin-top: 10px;
         }
         .input-form button:hover { background-color: #45a049; }
+        .visualization,
+        .diet-info {
+            display: none;
+        }
         .visualization {
             width: 100%;
             max-width: 600px;
             margin: 20px auto;
         }
-        .diet-info { margin-top: 20px; font-size: 1.2rem; color: #333; }
+        .diet-info {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
         .meal-list {
             margin-top: 20px;
             font-size: 1rem;
@@ -119,6 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const mealListDiv = document.getElementById("meal-list");
     const dietInfo = document.getElementById("diet-info");
     const chartCanvas = document.getElementById("nutrition-chart");
+    const visualizationDiv = document.querySelector(".visualization");
+    const dietInfoDiv = document.querySelector(".diet-info");
 
     let chart;
     let meals = [];
@@ -128,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (meals.length === 0) {
             mealListDiv.innerHTML = "No meals added yet.";
         } else {
-            mealListDiv.innerHTML = "<strong>Meals Added:</strong><br>" + meals.map(m => 
+            mealListDiv.innerHTML = "<strong>Meals Added:</strong><br>" + meals.map(m =>
                 `${m.name} - Protein: ${m.protein}g, Carbs: ${m.carbs}g, Fats: ${m.fats}g`
             ).join("<br>");
         }
@@ -150,6 +166,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         data: data,
                         backgroundColor: ['#ff6347', '#ffeb3b', '#4caf50']
                     }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
                 }
             });
         }
@@ -190,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Reset totals
         totalNutrients = { Protein: 0, Carbs: 0, Fats: 0 };
 
         meals.forEach(m => {
@@ -201,11 +220,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateChart();
         updateDietInfo();
+
+        visualizationDiv.style.display = "block";
+        dietInfoDiv.style.display = "block";
     });
 
     displayMealList();
 });
 </script>
+
 
 </body>
 </html>

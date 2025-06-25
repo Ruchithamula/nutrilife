@@ -10,21 +10,21 @@ session_start();
     <title>NutriLife</title>
     <link rel="stylesheet" href="indexstyle.css">
     <style>
-        /* Reset margin and padding */
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body and background styling */
+      
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             overflow-x: hidden;
         }
 
-        /* Header Styling */
+        
         header {
             display: flex;
             justify-content: space-between;
@@ -41,7 +41,7 @@ session_start();
             border-bottom: 2px solid rgba(76, 175, 80, 0.6);
         }
 
-        /* Navigation Bar */
+      
         nav ul {
             list-style: none;
             display: flex;
@@ -66,7 +66,7 @@ session_start();
             color:rgb(132, 244, 62);
         }
 
-        /* Main Section with Background Video */
+    
         main {
             position: relative;
             height: 70vh;
@@ -75,7 +75,6 @@ session_start();
             margin-top: 100px;
         }
 
-        /* Footer Styling */
         footer {
             background-color: green;
             color: white;
@@ -90,7 +89,7 @@ session_start();
             }
         }
 
-        /* Hide elements initially */
+       
         .hidden {
             display: none;
         }
@@ -105,7 +104,7 @@ session_start();
                 <li id="login-link"><a href="login.html">Log/Sign-Up</a></li>
 
                 <!-- Links that should be visible AFTER login -->
-                <li id="set-goal-link" class="hidden"><a href="set-goal.html">Set Goal</a></li>
+                <li id="set-goal-link" class="hidden"><a href="set-goal.php">Set Goal</a></li>
                 <li id="recommendations-link" class="hidden"><a href="recommendations.html">Recommendations</a></li>
                 <li id="dashboard-link" class="hidden"><a href="dashboard.html">Dashboard</a></li>
                 <li id="chart-link" class="hidden"><a href="box.html">Chart</a></li>
@@ -132,23 +131,22 @@ session_start();
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === "success") {
-                        console.log("User logged in:", data.username); // Debugging
+                        console.log("User logged in:", data.username); 
 
-                        // Hide the login/signup link
+                        
                         document.getElementById("login-link").classList.add("hidden");
 
-                        // Show the username in the navigation bar
+                       
                         document.getElementById("username-text").textContent = data.username;
                         document.getElementById("username-display").classList.remove("hidden");
 
-                        // Show links that should be visible after login
                         document.getElementById("set-goal-link").classList.remove("hidden");
                         document.getElementById("recommendations-link").classList.remove("hidden");
                         document.getElementById("dashboard-link").classList.remove("hidden");
                         document.getElementById("chart-link").classList.remove("hidden");
                         document.getElementById("logout-link").classList.remove("hidden");
                     } else {
-                        console.log("User not logged in"); // Debugging
+                        console.log("User not logged in"); 
                     }
                 })
                 .catch(error => console.error("Error fetching user data:", error));
